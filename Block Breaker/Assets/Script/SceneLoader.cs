@@ -30,6 +30,24 @@ public class SceneLoader : MonoBehaviour
 
     }
 
+    public void reloadLevel1() {
+
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+        SceneManager.LoadScene("Level 1");
+    
+    }
+
+
+    public void reloadLevel2()
+    {
+
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+        SceneManager.LoadScene("Level 2");
+
+    }
+
 
     public void onPressQuit() {
 

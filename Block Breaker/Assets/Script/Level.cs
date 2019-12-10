@@ -1,21 +1,53 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class Level : MonoBehaviour
 {
 
-    [SerializeField]int breakableBlocks;
+    [SerializeField] int breakableBlocks;
 
-    // Start is called before the first frame update
-    void Start()
+    SceneLoader scenceLoader;
+
+
+    private void Start()
     {
-        
+       scenceLoader = FindObjectOfType<SceneLoader>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    
+
+    public void countBreakableBlocks() {
+
+        breakableBlocks++;
+
     }
+
+
+    public void countDestroyedBlocks() {
+
+        breakableBlocks--;
+
+        if (breakableBlocks <= 0) {
+
+            //Invoke("loadLevel2", 0.5f);
+
+            scenceLoader.LoadNextScene();
+        
+        }
+
+    }
+
+    
+
+    public void loadLevel2() {
+
+        SceneManager.LoadScene("Level 2");
+    
+    }
+
+  
+
 }
